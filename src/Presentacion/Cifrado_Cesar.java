@@ -12,7 +12,7 @@ public class Cifrado_Cesar extends javax.swing.JFrame {
     String abc1 = "ZYXWVUTSRQPONMLKJIHGFEDCBA";
     String num = "0123456789";
     String abc  = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
+    
     public Cifrado_Cesar() {
         initComponents();
     }
@@ -111,6 +111,7 @@ public class Cifrado_Cesar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     private void DescifradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DescifradoActionPerformed
         String input = Entrada.getText().toUpperCase();
+        msj.setText(" ");
         if(valida(input)){
             
             String res = cifra.char_type(input, 4, abc1, num1);
@@ -118,11 +119,12 @@ public class Cifrado_Cesar extends javax.swing.JFrame {
                     + res);
             
         }else{
-            msj.setText("La cadena es invalida");
+            msj.setText("Esta cadena no es válida");
         }
     }//GEN-LAST:event_DescifradoActionPerformed
     private void CifradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CifradoActionPerformed
         String input = Entrada.getText().toUpperCase();
+        msj.setText(" ");
         if(valida(input)){
             
             String res = cifra.char_type(input,4,abc, num);
@@ -131,7 +133,7 @@ public class Cifrado_Cesar extends javax.swing.JFrame {
             
         }else{
             
-            msj.setText("La cadena ingresada no es válida");
+            msj.setText("Cadena inválida");
             
         }
     }//GEN-LAST:event_CifradoActionPerformed
@@ -149,7 +151,7 @@ public class Cifrado_Cesar extends javax.swing.JFrame {
     private javax.swing.JLabel msj;
     // End of variables declaration//GEN-END:variables
     public boolean valida(String input) {
-        String rex = "^([A-Z0-9]+ ?)+[A-Z0-9]+";
+        String rex = "^([A-Z0-9]+ ?)*[A-Z0-9]+";
         Pattern pat = Pattern.compile(rex);
         Matcher mat = pat.matcher(input);
         if (mat.matches()) {
